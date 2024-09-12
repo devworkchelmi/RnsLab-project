@@ -1,0 +1,12 @@
+@media (min-width: 992px) {
+  .cardtext-textcontent {
+    column-count: 2;
+    column-gap: 2rem;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .cardtext-textcontent {
+    column-count: 1;
+  }
+}

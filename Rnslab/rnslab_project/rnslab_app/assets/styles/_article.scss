@@ -1,0 +1,20 @@
+.article-picture {
+    margin-top: 0;
+    margin-bottom: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    max-height: 50vh; 
+    width: 100%;
+    object-fit: cover; 
+    object-position: center 30%; 
+}
+
+.article-h1 {
+    font-size: $h2-font-size ;
+}
+
+.article-dateauteur {
+    font-size: $h1-font-size;
+    font-style: italic;
+}

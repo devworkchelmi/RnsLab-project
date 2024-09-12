@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ProductLabels{% endblock %}
+
+{% block body %}
+    <h1>Create new ProductLabels</h1>
+
+    {{ include('product_labels/_form.html.twig') }}
+
+    <a href="{{ path('app_product_labels_index') }}">back to list</a>
+{% endblock %}

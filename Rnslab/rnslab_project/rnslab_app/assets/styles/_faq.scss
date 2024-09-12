@@ -1,0 +1,19 @@
+$primary: #37a984;
+$info: #F2F2F2;
+$secondary: #164334;
+
+.contact-section {
+    background-color: #F2F2F2; /* Utilisation de votre variable $info pour le fond gris */
+    width: 100%;
+    padding: 3em; /* Ajoutez un peu de padding pour l'espacement */
+    box-sizing: border-box; /* Assurez-vous que le padding n'affecte pas la largeur totale */
+}
+
+.contactFaq {
+    max-width: 1200px; /* Largeur maximale pour le contenu centré */
+    margin: 0 auto; /* Centre horizontalement le contenu */
+}
+
+.btn-faq {
+    background-color: $primary !important;
+}

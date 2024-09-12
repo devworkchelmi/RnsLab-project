@@ -1,0 +1,21 @@
+<div class="container pt-0">
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      {% for content in contents %}
+      {% if 'CardVertical' in content.hook %}
+      <div class="swiper-slide col-md-4 col-sm-12 mb-4">
+        <div class="card text-center border-0 shadow">
+          <img src="../images/{{ content.mediaSrc }}" class="card-img-top img-fluid border" alt="{{ content.mediaAlt }}"
+            style="object-fit: cover; width:100%; max-height:20vh;">
+          <div class="card-body">
+            <h3 class="card-title "> {{ content.title }} </h3>
+            <p class="card-text"> {{ content.textContent|raw }} </p>
+            <a href="#{{ content.subtitle|replace({' ':'-'}) }}" class="btn btn-primary" style="color:#ffff;"> Découvrez {{ content.subtitle }} </a>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+{% for content in contents %}
+{% if 'LegalNotice' in content.hook %}
+<section class="container my-1 pt-1">
+    <div class="row">
+        <div class="col-12">
+            <h2>{{ content.title }}</h2>
+        </div>
+        <div class="col-12">
+            <p>{{ content.textContent|raw }}</p>
+        </div>
+    </div>
+</section>
+{% endif %}
+{% endfor %}
+
+{% set notices = app.request.attributes.get('allLegalNotices') %}
+{% for notice in notices %}
+<div class="container my-5">
+    <div class="row align-items-center text-center">
+        <div class="col-12 ">
+            <h3>{{ notice.typeCompagny }} {{ notice.nameCompagny }}</h3>
+        </div>
+        <div class="col-12">
+            <p>{{ notice.adressHeadOffice|raw }}</p>
+        </div>
+        <div class="col-12">
+            <p >{{ notice.telNumberHeadOffice|raw }}</p>
+        </div>
+        <div class="col-12">
+            <p >{{ notice.siret|raw }}</p>
+        </div>
+        <div class="col-12">
+            <p >{{ notice.tvaIdNumber|raw }}</p>
+        </div>
+    </div>
+</div>
+{% endfor %}

@@ -1,0 +1,24 @@
+{% set pages = app.request.attributes.get('navigationPages') %}
+<nav class="navbar navbar-expand-lg bg-body-tertiary" style="padding-bottom: 0; position: relative; z-index: 1030;">
+    <div class="container-fluid navbarComponent">
+        {% set firstPage = pages|first %}
+        <a class="navbar-brand ms-0 mt-1" href="{{ path('app_pages_show', {'slug': firstPage.slug}) }}">
+            <img src="../images/new-logo.png" width="200" height="auto" alt="logo RNSLAB et lien vers la page d'accueil">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+            aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse rounded" id="navbarScroll" style="z-index: 1030;">
+            <ul class="navbar-nav navbar-nav-scroll my-1">
+                {% for page in pages|slice(0, 5) %}
+                <li class="nav-item">
+                    <a class="nav-link{{ loop.index == 1 ? ' active' : '' }} px-5 mx- mt-3" {{ loop.index == 1 ? 'aria-current="page"' : '' }}
+                        style="color: #ffffff; font-size: 1rem;"
+                        href="{{ path('app_pages_show', {'slug': page.slug}) }}">{{ page.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,26 @@
+{% set articles = app.request.attributes.get('allArticles') %}
+
+<div class="container">
+    <div class="swiper-container-articles">
+        <div class="swiper-wrapper">
+            {% for article in articles %}
+            {% if article.hightlighted != true %}
+            <div class="swiper-slide">
+                <div class="card shadow w-100 h-100">
+                    <a href="{{ article.slug }}" class="card-link">
+                        <img src="../images/{{ article.pictureSrc }}" class="card-img-top img-fluid border"
+                            alt="{{ article.pictureAlt }}" style="object-fit: cover; width:100%; max-height:20vh;">
+                    </a>
+                    <div class="card-body" style="height: 30vh; width:100%; overflow:hidden">
+                        <h3 class="card-title">{{ article.title }}</h3>
+                        <p class="card-text">{{ article.textContent|slice(0, 130)|raw }} ...&NonBreakingSpace; <a
+                                href="{{  path('app_articles_show', {slug: article.slug}) }}" class="card-link"> lire la suite</a></p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+    </div>
+</div>

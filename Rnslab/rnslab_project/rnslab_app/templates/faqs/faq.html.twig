@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+{% set pages = app.request.attributes.get('navigationPages') %}
+
+{% block title %}FAQ{% endblock %}
+
+{% block main %}
+
+<h1>FAQ</h1>
+<section class="text-center mx-5" style="height: fit-content;">
+<h2>Faq générale</h2>
+<div class="accordion accordion-flush" id="accordionFAQ">
+    {% for faq in faqs %}
+        <div class="accordion-item" id="faq-item-{{ loop.index }}">
+            <h2 class="accordion-header">
+                <button 
+                    class="accordion-button collapsed"
+                    type="button" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#flush-faq{{ loop.index }}" 
+                    aria-expanded="false" aria-controls="flush-faq{{ loop.index }}">
+                    {{ faq.question|raw }}
+                </button>
+            </h2>
+            <div id="flush-faq{{ loop.index }}" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                <div class="accordion-body">{{ faq.response|raw }}</div>
+            </div>
+        </div>
+    {% endfor %}
+
+{% if faqs|length > 5 %}
+<div class="text-center my-3">
+    <button id="show-more" class="btn btn-primary rounded-circle btn-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+  				<path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+				</svg>
+    </button>
+</div>
+{% endif %}
+</div>
+</section>
+
+<section class="text-center align-items-center contact-section">
+	<h2>Votre problème n'est pas résolu<br> ou vous avez d'autres questions ?</h2>
+	<div class="contactFaq">
+		{# <p>
+		Lorem ipsum dolor sit amet. Et quidem quibusdam et fugit harum qui 
+		reiciendis placeat hic quibusdam porro non nesciunt quidem. Ut quas 
+		quia qui provident distinctio et consequuntur 
+		</p> #}
+        {% set contactPage = pages[4] %}
+        <a href="{{ path('app_pages_show', {slug: contactPage.slug}) }}">
+          <button type="button" class="btn btn-primary btn-block">Écrivez-nous</button>
+        </a>
+	</div>
+</section>
+
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+	const showMoreButton = document.getElementById('show-more');
+	if (showMoreButton) {
+		showMoreButton.addEventListener('click', function() {
+			const hiddenItems = document.querySelectorAll('#accordionFAQ .accordion-item.d-none');
+			hiddenItems.forEach(item => item.classList.remove('d-none'));
+			showMoreButton.style.display = 'none';
+		});
+	}
+});
+</script>
+
+{% endblock %}

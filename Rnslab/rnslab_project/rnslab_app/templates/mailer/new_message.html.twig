@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>Nouvelle demande de 
+        {{ contact.civility }} {{ contact.firstname }} {{ contact.lastname }}</h1>
+        <p>Email : {{ contact.email }}</p>
+        <p>Téléphone : {{ contact.telnumber }}</p>
+        <p>Profession : {{ contact.occupation}} </p>
+        <p>Mettre ici les détails de la demande</p>
+        <h2>Objet de la demande : 
+            {{ contact.requestObject }}
+        </h2>
+        <p>{{ contact.message|raw }}</p>       
+    </body>
+</html>

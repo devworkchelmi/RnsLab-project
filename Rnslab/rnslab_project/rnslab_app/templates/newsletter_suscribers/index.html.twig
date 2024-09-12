@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}NewsletterSuscribers index{% endblock %}
+
+{% block body %}
+    <h1>NewsletterSuscribers index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>LegalConsent</th>
+                <th>DateSuscription</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for newsletter_suscriber in newsletter_suscribers %}
+            <tr>
+                <td>{{ newsletter_suscriber.id }}</td>
+                <td>{{ newsletter_suscriber.email }}</td>
+                <td>{{ newsletter_suscriber.legalConsent ? 'Yes' : 'No' }}</td>
+                <td>{{ newsletter_suscriber.dateSuscription ? newsletter_suscriber.dateSuscription|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_newsletter_suscribers_show', {'id': newsletter_suscriber.id}) }}">show</a>
+                    <a href="{{ path('app_newsletter_suscribers_edit', {'id': newsletter_suscriber.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_newsletter_suscribers_new') }}">Create new</a>
+{% endblock %}

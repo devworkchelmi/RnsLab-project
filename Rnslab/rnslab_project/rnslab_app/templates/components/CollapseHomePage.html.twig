@@ -1,0 +1,22 @@
+
+<div class="accordion accordion-flush" id="accordionFlush1">
+    {% for content in contents %} {% if 'CollapseHomePage' in content.hook %}
+    <div class="accordion-item  m-1 border-0">
+        <h2 class="accordion-header" ">
+            <button class=" accordion-button button-custom collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapse{{ loop.index0 }}" aria-expanded="false"
+            aria-controls="flush-collapse{{ loop.index0 }}">
+            <img src="../images/{{ content.mediaSrc }}" alt="{{ content.mediaAlt }}" class="rounded shadow-sm">
+            <span style="font-size: 2rem;">{{ content.title }}<span>
+                    </button>
+        </h2>
+        <div id="flush-collapse{{ loop.index0 }}" class="accordion-collapse collapse" data-bs-parent="#accordionFlush1">
+            <div class="accordion-body" style="padding-left: 20%; padding-right: 20%;">
+                <p>{{ content.textContent }}</p>
+                <p style="text-align: center;"><a href="/{{ content.subtitle|raw }}">En savoir plus</a></p>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>

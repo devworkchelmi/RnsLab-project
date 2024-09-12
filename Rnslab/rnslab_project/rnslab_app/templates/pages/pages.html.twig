@@ -1,0 +1,235 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %} {{ page.title }} {% endblock %}
+
+{% block metaDescription %}
+{{ page.metaDescription }}
+{% endblock %}
+
+
+{% block carouselHeader %}
+{% include 'components/CarouselHeader.html.twig' with {'contents' : page.getContent} %}
+{% endblock %}
+
+
+{% block main %}
+
+<h1>{{ page.title }}</h1>
+
+{% for content in page.getContent %}
+
+{% if 'AllVertical' in content.hook and content.title == 'Laboratoire Renascor' %}
+<section>
+    {{ component('AllVertical', {
+    title: content.title,
+    subtitle: content.subtitle,
+    href: "https://www.laboratoire-renascor.com",
+    textContent: content.textContent,
+    mediaSrc: content.mediaSrc,
+    mediaAlt: content.mediaAlt,
+    hook: content.hook,
+    })}}
+</section>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                {% include 'components/CarouselProductsRedactiv.html.twig' %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% elseif 'AllVertical' in content.hook and content.title == 'Barbatif' %}
+<section>
+    {{ component('AllVertical', {
+    title: content.title,
+    subtitle: content.subtitle,
+    href: "https://www.barbatif.com",
+    textContent: content.textContent,
+    mediaSrc: content.mediaSrc,
+    mediaAlt: content.mediaAlt,
+    hook: content.hook,
+    })}}
+</section>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                {% include 'components/CarouselProductsBarbatif.html.twig' %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% elseif 'AllVertical' in content.hook and content.title == 'NosCheveux.com' %}
+<section>
+    {{ component('AllVertical', {
+    title: content.title,
+    subtitle: content.subtitle,
+    href: "https://www.noscheveux.com",
+    textContent: content.textContent,
+    mediaSrc: content.mediaSrc,
+    mediaAlt: content.mediaAlt,
+    hook: content.hook,
+    })}}
+</section>
+
+{% elseif 'CardBigPicture' in content.hook %}
+<section>
+    {{ component('CardBigPicture',{
+    title: content.title,
+    subtitle: content.subtitle,
+    textContent: content.textContent,
+    mediaSrc: content.mediaSrc,
+    mediaAlt: content.mediaAlt,
+    hook: content.hook,
+    })}}
+</section>
+
+{% elseif 'CardLeftPicture' in content.hook %}
+<section>
+    {{ component(
+    'CardLeftPicture', {
+    title: content.title,
+    subtitle: content.subtitle,
+    textContent: content.textContent,
+    mediaSrc: content.mediaSrc,
+    mediaAlt: content.mediaAlt,
+    hook: content.hook,
+    }
+    ) }}
+</section>
+
+{% elseif 'CardRightPicture' in content.hook %}
+<section>
+    {{ component('CardRightPicture',{
+    title: content.title,
+    subtitle: content.subtitle,
+    textContent: content.textContent,
+    mediaSrc: content.mediaSrc,
+    mediaAlt: content.mediaAlt,
+    hook: content.hook,
+    })}}
+</section>
+
+{% elseif 'CardRightCarousel' in content.hook %}
+<section>
+    <div class="container {{ content.hook }}">
+        <div class="row">
+            <div class="col-md-6 col-sm-12 p-0 mt-0">
+                <h2>{{ content.title }}</h2>
+                <h3>{{ content.subtitle }}</h3>
+            </div>
+            <div class="col-md-6 col-sm-12 align-self-end p-0 mt-5 mb-0">
+                {% include 'components/CarouselValues.html.twig' with {'contents' : page.getContent} %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% elseif 'CardText' in content.hook %}
+<section>
+    {{ component('CardText', {
+    title: content.title,
+    subtitle: content.subtitle,
+    textContent: content.textContent,
+    })}}
+</section>
+
+{% elseif 'NosEnseignes' in content.hook %}
+<section>
+    <h2 class="text-center">{{ content.title }}</h2>
+    {% include 'components/CardVertical.html.twig' with {'contents' : page.getContent} %}
+</section>
+
+
+{% elseif 'CarouselProducts' in content.hook %}
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>{{ content.title }}</h2>
+            </div>
+            <div class="col-12">
+                {% include 'components/CarouselProductsStar.html.twig' %}
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% elseif 'CollapseHomePage 1' in content.hook %}
+<section>
+    {% include 'components/CollapseHomePage.html.twig' with {'contents' : page.getContent} %}
+</section>
+
+{% elseif 'LegalNoticeHook' in content.hook %}
+    {% include 'pages/legal-notice.html.twig' with {'contents' : page.getContent} %}
+
+{% elseif 'ContactHook' in content.hook %}
+<section style="margin-bottom:0%;">
+    <div class="container">
+        <div class="row">
+        <div class="col-12 text-center">
+                    {% include 'components/_flash.html.twig' %}
+                    </div>
+            <div class="col-12 text-center">
+                <h2>{{ content.title }}</h2>
+            </div>
+            <div class="col-12 text-center my-0 py-0">
+              <p>Consultez notre rubrique <a href="/faqs">FAQ</a> ou écrivez-nous:</p> 
+            </div>
+        </div>
+    </div>
+</section>
+<section style="overflow: hidden">
+    {{ include('message_contacts/contact-form.html.twig', { 'form': form }) }}
+</section>
+    
+
+{# {% elseif 'PopUpHistory' in content.hook %}
+<section>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ content.id }}</td>
+            </tr>
+            <tr>
+                <th>OrderContent</th>
+                <td>{{ content.orderContent }}</td>
+            </tr>
+            <tr>
+                <th>Hook</th>
+                <td>{{ content.hook }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ content.title }}</td>
+            </tr>
+            <tr>
+                <th>Subtitle</th>
+                <td>{{ content.subtitle }}</td>
+            </tr>
+            <tr>
+                <th>TextContent</th>
+                <td>{{ content.textContent }}</td>
+            </tr>
+            <tr>
+                <th>MediaSrc</th>
+                <td> <img src=" {{ content.mediaSrc }}" style="max-width: 100PX;"></td>
+            </tr>
+            <tr>
+                <th>MediaAlt</th>
+                <td>{{ content.mediaAlt }}</td>
+            </tr>
+        </tbody>
+    </table>
+</section> #}
+
+{% endif %}
+{% endfor %}
+
+{% endblock %}

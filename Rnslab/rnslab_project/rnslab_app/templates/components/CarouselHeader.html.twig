@@ -1,0 +1,14 @@
+<div id="carouselHeader" class="carousel slide carousel-fade " data-bs-ride="carousel" data-bs-theme="dark">
+
+    <div class="carousel-inner">
+        {% for content in contents %}
+        {% if 'CarouselHeader' in content.hook %}
+        <div class="carousel-item {{ 'CarouselHeader 1' in content.hook ? 'active' : '' }}">
+            <img src="../images/{{ content.mediaSrc }}" class="d-block w-100 rounded" alt=""
+            style="object-fit: cover; max-height:80vh; width: 100%;">
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+   
+</div>

@@ -1,0 +1,11 @@
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="alert alert-{{ label }} text-center alert-dismissible bg-primary" role="alert"
+        style="margin-left:20%; margin-right:20%; color:#FFFF">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="class"></button>
+            <div class="alert-message">
+                {{ message|raw }} 
+            </div>
+        </div>
+    {% endfor %}
+{% endfor %}

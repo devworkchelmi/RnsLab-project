@@ -1,0 +1,23 @@
+{% set articles = app.request.attributes.get('allArticles') %}
+
+{% for article in articles %}
+{% if article.hightlighted == true %}
+<div class="card mb-3 container shadow-sm">
+    <div class="row">
+        <div class="col-md-4  ms-0 ps-0">
+            <img src="../images/{{ article.pictureSrc }}" class="img-fluid rounded-start" alt="{{ article.pictureAlt }}"
+            style="object-fit: cover;">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h3 class="card-title">{{ article.title }}</h3>
+                <p class="card-text">{{ article.textContent|slice(0, 700)|raw }} ... &NonBreakingSpace;<a href="{{  path('app_articles_show', {slug: article.slug}) }}" class="card-link text-left">&NonBreakingSpace; lire la suite</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endfor %}
+
+
+

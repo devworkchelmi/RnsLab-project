@@ -1,0 +1,70 @@
+// css des pages en global, vue générale
+@import url("https://fonts.googleapis.com/css2?family=Jaldi:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jaldi:wght@400;700&family=Josefin+Slab:ital,wght@1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+//bootstrap variables:
+$primary: #37a984;
+$info: #f2f2f2;
+$secondary: #164334;
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "info": $info,
+);
+$font-family-base: "Jaldi", sans-serif;
+$headings-font-family: "Josephin Slab", serif;
+$font-size-base: 1.15rem;
+$h1-font-size: 0.9rem;
+$h2-font-size: 2rem;
+$h3-font-size: 1.5rem;
+$headings-color: #102601;
+$headings-margin-bottom: 1.3rem;
+$line-height-base: 1.5;
+$carousel-control-transition: opacity 0.45s ease;
+$carousel-transition-duration: 1s;
+$nav-link-color: $primary;
+$link-hover-color: #164334;
+$link-hover-decoration: double;
+$grid-gutter-width: 2rem;
+$btn-font-size: 1rem;
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+
+  main {
+    margin: 0;
+    padding: 0;
+
+    section {
+      //border: #102601 1px dotted;
+      margin-top: 3%;
+      margin-bottom: 7%;
+
+      display: block;
+      padding: 0;
+      max-height: 80vh;
+      width: auto;
+      border-radius: 5px;
+      overflow: hidden;
+      align-items: center;
+
+      .container {
+        width: 100%;
+        height: 100%;
+
+        .row {
+          margin-left: 5%;
+          margin-right: 5%;
+        }
+
+      }
+
+      .container-fluid {
+        padding-left: 10%;
+        padding-right: 10%;
+      }
+    }
+  }
+}

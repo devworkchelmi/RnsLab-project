@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page non trouvée - 404</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h1 {
+            font-size: 72px;
+            margin: 0;
+        }
+        h2 {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        p {
+            font-size: 18px;
+            color: #666;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .illustration {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% block main %}
+            <h1>404 Page not found</h1>
+            <p>
+                PAGE NOT found <a href="/">return to the homepage</a>.
+            </p>
+        {% endblock %}
+    </div>
+</body>
+</html>

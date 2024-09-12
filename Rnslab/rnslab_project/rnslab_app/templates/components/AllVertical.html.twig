@@ -1,0 +1,27 @@
+<div{{ attributes }}>
+    <div class="container {{ hook }} pt-0" id="{{ title|replace({' ':'-'}) }}">
+        <div class="row">
+            <div class="col-12 text-center mh-10 m-0 p-0">
+                <h2>{{ title }}</h2>
+            </div>
+            <div class="col-12 w-100 m-0 p-0">
+            <a href="{{ href }}" class=" image-hover-link">
+                <img class="rounded shadow-sm mx-auto my-auto" src="../images/{{ mediaSrc }}" alt="{{ mediaAlt }}" 
+                    style="object-fit: cover; max-height: 40vh; width: 100%" >
+                <span class="hover-text position-absolute top-50 start-50 translate-middle rounded p-2 ">
+                    {{ subtitle }}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
+                    </svg>
+                </span>
+            </a>
+        </div>
+            <div class="col-12 mh-35 mt-2">
+                <p>{{ textContent|raw }} </p>
+            </div>
+        </div>
+    </div>
+    </div>
+    

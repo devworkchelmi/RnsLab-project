@@ -1,0 +1,44 @@
+<div class="container mh-100 bg-info shadow py-2 px-2" >
+    <div class="row">
+        <div class=" col-12 text-center">
+            <h2 style="margin-bottom:0%; font-size:1.5rem;">POUR NOUS CONTACTER MERCI DE REMPLIR LES CHAMPS CI-DESSOUS</h2>
+        </div>
+        <div class="col-12 text-center">
+            <p style="font-style:italic; font-size:0.7rem; ">
+                Veillez à ne communiquer que les informations nécessaires au traitement de votre demande, 
+                à l’exclusion notamment de toute donnée pouvant être considérée comme sensible au regard de la réglementation 
+                (données de santé, révélant votre origine ethnique, vos opinions politiques, philosophiques ou religieuses, etc).</p>
+        </div>
+    </div>
+    {{ form_start(form) }}
+    <div class="row justify-content-between" style="font-size: 1rem; padding-right: 2rem">
+        <div class="col-md-3 col-sm-12 ">
+            {{ form_row(form.civility) }}
+        </div>
+        <div class="col-md-4 col-sm-12">
+            {{ form_row(form.firstname) }}
+        </div>
+        <div class="col-md-4 col-sm-12">
+            {{ form_row(form.lastname) }}
+        </div>
+        <div class="col-md-3 col-sm-12">
+            {{ form_row(form.occupation) }}
+        </div>
+        <div class="col-md-3 col-sm-12">
+            {{ form_row(form.telnumber)}}
+        </div>
+        <div class="col-md-6 col-sm-12">
+            {{ form_row(form.email)}}
+        </div>
+        <div class="col-12">
+            {{ form_row(form.requestObject) }}
+        </div>
+        <div class="col-12">
+            {{ form_row(form.message)}}
+        </div>
+        <div class="col-12 text-end" style="margin-top: 1.5rem;">
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+        </div>
+    </div>
+    {{ form_end(form) }}
+</div>

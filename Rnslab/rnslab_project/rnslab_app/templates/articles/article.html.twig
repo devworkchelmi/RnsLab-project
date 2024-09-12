@@ -1,0 +1,30 @@
+<!--ce fichier herite du template base.html.twig-->
+{% extends 'base.html.twig' %}
+<!--redéfinition du template de base en article-->
+{% block title %}{{ article.title }}{% endblock %}
+<!--définition des metadescription-->
+{% block metaDescription %}{{ article.metaDescription }}{% endblock %}
+<!--définition d'une image dans un block d'ouverture et refermé par un endblock-->
+{% block pictureHeader %}
+<img src="../images/{{ article.pictureSrc }}" alt="{{ article.pictureAlt }}" class="article-picture">
+{% endblock %}
+<!--template contenant le corp de la page, le contenu est structuré en utilisant les classes de la grille Bootstrap-->
+{% block main %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 text-center">
+        <!--Affiche le titre de l'article dans un élément h1-->
+            <h1 class="article-h1">{{ article.title }}</h1>
+        </div>
+            <div class="col-12 text-end">
+                    <!--Affiche l'auteur de l'article et la date de publication, au format dd-mm-yyyy-->
+                <p class="article-dateauteur">écrit par {{ article.autor }} & publié le {{ article.datePublication|date('d-m-Y') }}.</p>
+            </div>
+            <div class="col-12">
+           <!--Affiche le contenu de l'article. Le filtre raw est utilisé pour indiquer que le contenu est du HTML brut-->
+                <p>{{ article.textContent|raw }}</p>
+            </div>       
+    </div>
+</div>
+<!--balise de fermeture-->
+{% endblock %}

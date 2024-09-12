@@ -1,0 +1,152 @@
+{% block main %}
+    <div class="container container-fluid">
+        <h2>Modifier les informations légales</h2>
+
+        {{ form_start(form) }}
+            <div class="">
+                <div class="row mb-4">
+                    <div class="col-md-6 form-group">
+                        {{ form_label(form.typeCompagny) }}
+                        {{ form_widget(form.typeCompagny, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.typeCompagny) }}
+                    </div>
+                    <div class="col-md-6 form-group">
+                        {{ form_label(form.nameCompagny) }}
+                        {{ form_widget(form.nameCompagny, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.nameCompagny) }}
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md-6 form-group">
+                        {{ form_label(form.adressHeadOffice) }}
+                        {{ form_widget(form.adressHeadOffice, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.adressHeadOffice) }}
+                    </div>
+                    <div class="col-md-6 form-group">
+                        {{ form_label(form.telNumberHeadOffice) }}
+                        {{ form_widget(form.telNumberHeadOffice, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.telNumberHeadOffice) }}
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md-6 form-group">
+                        {{ form_label(form.siret) }}
+                        {{ form_widget(form.siret, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.siret) }}
+                    </div>
+                    <div class="col-md-6 form-group">
+                        {{ form_label(form.tvaIdNumber) }}
+                        {{ form_widget(form.tvaIdNumber, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.tvaIdNumber) }}
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md-6 form-group">
+                        {{ form_label(form.capitalAmount) }}
+                        {{ form_widget(form.capitalAmount, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.capitalAmount) }}
+                    </div>
+                </div>
+
+                <h3 class="text-center mb-4">Contacts</h3>
+                <div class="row mb-4">
+                    <div class="col-md-6 form-group">
+                        {{ form_label(form.adressLogistic) }}
+                        {{ form_widget(form.adressLogistic, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.adressLogistic) }}
+                    </div>
+                    <div class="col-md-6 form-group">
+                        {{ form_label(form.adressContact) }}
+                        {{ form_widget(form.adressContact, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.adressContact) }}
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md-6 form-group">
+                        {{ form_label(form.telNumberContact1) }}
+                        {{ form_widget(form.telNumberContact1, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.telNumberContact1) }}
+                    </div>
+                    <div class="col-md-6 form-group">
+                        {{ form_label(form.telNumberContact2) }}
+                        {{ form_widget(form.telNumberContact2, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.telNumberContact2) }}
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md-6 form-group">
+                        {{ form_label(form.firstnameDirector) }}
+                        {{ form_widget(form.firstnameDirector, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.firstnameDirector) }}
+                    </div>
+                    <div class="col-md-6 form-group">
+                        {{ form_label(form.lastnameDirector) }}
+                        {{ form_widget(form.lastnameDirector, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.lastnameDirector) }}
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md-6 form-group">
+                        {{ form_label(form.firstnameContact) }}
+                        {{ form_widget(form.firstnameContact, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.firstnameContact) }}
+                    </div>
+                    <div class="col-md-6 form-group">
+                        {{ form_label(form.lastnameContact) }}
+                        {{ form_widget(form.lastnameContact, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.lastnameContact) }}
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md-6 form-group">
+                        {{ form_label(form.roleContact) }}
+                        {{ form_widget(form.roleContact, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.roleContact) }}
+                    </div>
+                </div>
+
+                <h3 class="text-center mb-4">Hébergeur Internet</h3>
+                <div class="row mb-4">
+                    <div class="col-md-6 form-group">
+                        {{ form_label(form.nameInternethost) }}
+                        {{ form_widget(form.nameInternethost, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.nameInternethost) }}
+                    </div>
+                    <div class="col-md-6 form-group">
+                        {{ form_label(form.adressInternethost) }}
+                        {{ form_widget(form.adressInternethost, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.adressInternethost) }}
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md-6 form-group">
+                        {{ form_label(form.telNumberInternethost) }}
+                        {{ form_widget(form.telNumberInternethost, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.telNumberInternethost) }}
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md-6 form-group">
+                        {{ form_label(form.titleFooter) }}
+                        {{ form_widget(form.titleFooter, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.titleFooter) }}
+                    </div>
+                    <div class="col-md-6 form-group">
+                        {{ form_label(form.descriptionFooter) }}
+                        {{ form_widget(form.descriptionFooter, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.descriptionFooter) }}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <button class="btn btn-primary">{{ button_label|default('Modifier') }}</button>
+                    </div>
+                </div>
+            </div>
+        {{ form_end(form) }}
+
+        {% set indexUrl = ea_url().setAction('index').setController('App\\Controller\\Admin\\LegalInformationsCrudController').generateUrl() %}
+        <a href="{{ indexUrl }}" class="btn btn-secondary mt-3">Retour à la liste</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,116 @@
+    {% extends '@EasyAdmin/crud/index.html.twig' %}
+
+    {% set notices = app.request.attributes.get('allLegalNotices') %}
+
+    {% block content %}
+    <section>
+        <div class="container">
+            <div class="row m-3 p-3 justify-content-between">
+                <div class="col-md-12 align-items-center text-center">
+                    <h1>Informations légales</h1>
+                    <div>
+                        <a href="{{ path('app_legal_informations_edit', {'id': notices[0].id}) }}" class="btn btn-sm btn-warning">Modifier</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <h3>RNSLAB</h3>
+                    <table class="table table-striped table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Type d'entreprise</th>
+                                <th>Nom de l'entreprise</th>
+                                <th>Adresse du Siège Social</th>
+                                <th>Téléphone du Siège Social</th>
+                                <th>Numéro SIRET</th>
+                                <th>Numéro d'ID TVA</th>
+                                <th>Montant du Capital</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for notice in notices %}
+                                <tr>
+                                    <td>{{ notice.id }}</td>
+                                    <td>{{ notice.typeCompagny }}</td>
+                                    <td>{{ notice.nameCompagny }}</td>
+                                    <td>{{ notice.adressHeadOffice }}</td>
+                                    <td>{{ notice.telNumberHeadOffice }}</td>
+                                    <td>{{ notice.siret }}</td>
+                                    <td>{{ notice.tvaIdNumber }}</td>
+                                    <td>{{ notice.capitalAmount }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <h3>Contacts</h3>
+                    <table class="table table-striped table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Adresse Logistique</th>
+                                <th>Prénom du Directeur</th>
+                                <th>Nom du Directeur</th>
+                                <th>Adresse de Contact</th>
+                                <th>Téléphone de Contact 1</th>
+                                <th>Téléphone de Contact 2</th>
+                                <th>Prénom de Contact</th>
+                                <th>Nom de Contact</th>
+                                <th>Rôle de Contact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for notice in notices %}
+                                <tr>
+                                    <td>{{ notice.adressLogistic }}</td>
+                                    <td>{{ notice.firstnameDirector }}</td>
+                                    <td>{{ notice.lastnameDirector }}</td>
+                                    <td>{{ notice.adressContact }}</td>
+                                    <td>{{ notice.telNumberContact1 }}</td>
+                                    <td>{{ notice.telNumberContact2 }}</td>
+                                    <td>{{ notice.firstnameContact }}</td>
+                                    <td>{{ notice.lastnameContact }}</td>
+                                    <td>{{ notice.roleContact }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <h3>Hébergeur Internet</h3>
+                    <table class="table table-striped table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Nom de l'hébergeur Internet</th>
+                                <th>Adresse de l'hébergeur Internet </th>
+                                <th>Téléphone de l'hébergeur Internet</th>
+                                <th>Description Footer</th>
+                                <th>Titre Footer</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for notice in notices %}
+                                <tr>
+                                    <td>{{ notice.nameInternethost }}</td>
+                                    <td>{{ notice.adressInternethost }}</td>
+                                    <td>{{ notice.telNumberInternethost }}</td>
+                                    <td>{{ notice.descriptionFooter }}</td>
+                                    <td>{{ notice.titleFooter }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,32 @@
+<div id="carouselValues" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-theme="dark">
+
+    <div class="carousel-inner">
+        {% for content in contents %}
+        {% if 'CarouselValues' in content.hook %}
+        <div class="carousel-item {{ 'CarouselValues 1' in content.hook ? 'active' : '' }}">
+            <img src="../images/{{ content.mediaSrc }}" class="d-block w-100 rounded" alt="{{ content.mediaAlt }}"
+            style="object-fit: cover; max-height: 50vh; width: 85%;">
+            <div class="carousel-caption d-none d-md-block textCarouselValues position-absolute top-50 start-50 translate-middle rounded p-3" 
+            style="
+            object-fit: cover; height: 85%; width: 85%;
+            background: rgba(255, 255, 255, 0.28);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5.5px);
+            -webkit-backdrop-filter: blur(5.5px);
+            border: 1px solid rgba(255, 255, 255, 0.76);">
+                <h3>{{ content.subtitle }}</h3>
+                <p>{{ content.textContent|raw }}</p>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselValues" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselValues" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>

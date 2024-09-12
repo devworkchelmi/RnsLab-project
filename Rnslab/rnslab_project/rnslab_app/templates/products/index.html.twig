@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Products Index{% endblock %}
+
+{% block main %}
+<h1>Products Index</h1>
+
+<section>
+    <div id="carouselProducts" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-theme="dark">
+        <div class="carousel-inner">
+            {% for product in products %}
+            <div class="carousel-item {{ product.orderproduct == 1 ? 'active' : '' }}">
+                <img src="{{ product.pictureSrc }}" class="d-block rounded" alt="{{ product.pictureAlt }}"
+                    style="object-fit:cover; max-height: 70vh; width:100%">
+                <div class="carousel-caption d-none d-md-block" 
+                style=" background: rgba(255, 255, 255, 0.28);
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(5.5px);
+                -webkit-backdrop-filter: blur(5.5px);
+                border: 1px solid rgba(255, 255, 255, 0.76);">
+                    <h3>{{ product.title }}</h3>
+                    <p>{{ product.description|raw}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselProducts" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselProducts" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+
+
+
+{% endblock %}

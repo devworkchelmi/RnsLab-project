@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ProductLabels{% endblock %}
+
+{% block body %}
+    <h1>ProductLabels</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ product_label.id }}</td>
+            </tr>
+            <tr>
+                <th>NameLabel</th>
+                <td>{{ product_label.nameLabel }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_product_labels_index') }}">back to list</a>
+
+    <a href="{{ path('app_product_labels_edit', {'id': product_label.id}) }}">edit</a>
+
+    {{ include('product_labels/_delete_form.html.twig') }}
+{% endblock %}

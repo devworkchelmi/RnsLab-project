@@ -1,0 +1,15 @@
+<div{{ attributes }}>
+    <div class="container {{ hook }}">
+        <div class="row justify-content-between">
+            <div class="col-md-6 col-sm-12">
+                    <h2>{{ title }}</h2>
+                    <h3>{{ subtitle }}</h3>
+                <img src="../images/{{ mediaSrc }}" class="rounded shadow-sm img-fluid" alt="{{ mediaAlt }}"
+                    style="object-fit: cover;">
+            </div>
+            <div class="col-md-6 col-sm-12 align-self-end">
+                <p class="">{{ textContent|raw }}</p>
+            </div>
+        </div>
+    </div>
+    </div>

@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}NewsletterSuscribers{% endblock %}
+
+{% block body %}
+    <h1>NewsletterSuscribers</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ newsletter_suscriber.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ newsletter_suscriber.email }}</td>
+            </tr>
+            <tr>
+                <th>LegalConsent</th>
+                <td>{{ newsletter_suscriber.legalConsent ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>DateSuscription</th>
+                <td>{{ newsletter_suscriber.dateSuscription ? newsletter_suscriber.dateSuscription|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_newsletter_suscribers_index') }}">back to list</a>
+
+    <a href="{{ path('app_newsletter_suscribers_edit', {'id': newsletter_suscriber.id}) }}">edit</a>
+
+    {{ include('newsletter_suscribers/_delete_form.html.twig') }}
+{% endblock %}

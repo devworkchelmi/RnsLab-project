@@ -1,0 +1,24 @@
+.navbarComponent {
+    background: #164334;
+    background: -webkit-linear-gradient(90deg, #164334 50%, #37a984 100%);
+    background: linear-gradient(90deg, #164334 50%, #37a984 100%);
+    margin-top: -1%;
+    margin-bottom: 0;
+    max-height: 11.5vh;
+}
+
+.navbar-collapse {
+    background: #164334;
+    background: -webkit-linear-gradient(106deg, #164334 0%, #37a984 100%);
+    background: linear-gradient(106deg, #164334 0%, #37a984 100%);
+}
+
+.nav-link {
+    transition: all 0.9s ease; 
+}
+
+.nav-link:hover {
+    background-color: #37a984;
+    opacity: 0.8;
+    border-radius: 70%; 
+}

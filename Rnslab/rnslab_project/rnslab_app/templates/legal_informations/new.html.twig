@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New LegalInformations{% endblock %}
+
+{% block body %}
+    <h1>Create new LegalInformations</h1>
+
+    {{ include('legal_informations/_form.html.twig') }}
+
+    <a href="{{ path('app_legal_informations_index') }}">back to list</a>
+{% endblock %}

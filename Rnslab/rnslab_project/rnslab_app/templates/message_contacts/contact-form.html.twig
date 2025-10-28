@@ -1,18 +1,24 @@
-<div class="container mh-100 bg-info shadow py-2 px-2" >
+<div id="contact-form" class="container mh-100 bg-info shadow py-2 px-2">
     <div class="row">
-        <div class=" col-12 text-center">
+        <div class="col-12 text-center">
             <h2 style="margin-bottom:0%; font-size:1.5rem;">POUR NOUS CONTACTER MERCI DE REMPLIR LES CHAMPS CI-DESSOUS</h2>
         </div>
         <div class="col-12 text-center">
-            <p style="font-style:italic; font-size:0.7rem; ">
+            <p style="font-style:italic; font-size:0.7rem;">
                 Veillez à ne communiquer que les informations nécessaires au traitement de votre demande, 
                 à l’exclusion notamment de toute donnée pouvant être considérée comme sensible au regard de la réglementation 
-                (données de santé, révélant votre origine ethnique, vos opinions politiques, philosophiques ou religieuses, etc).</p>
+                (données de santé, révélant votre origine ethnique, vos opinions politiques, philosophiques ou religieuses, etc).
+            </p>
         </div>
     </div>
-    {{ form_start(form) }}
+
+    <!-- ✅ Ajout du contrôleur Stimulus -->
+    {{ form_start(form, {
+        'action': path('app_message_contacts_new'),
+        'attr': {'id': 'contact-form-element', 'data-controller': 'contact-form', 'data-action': 'submit->contact-form#submitForm'}
+    }) }}
     <div class="row justify-content-between" style="font-size: 1rem; padding-right: 2rem">
-        <div class="col-md-3 col-sm-12 ">
+        <div class="col-md-3 col-sm-12">
             {{ form_row(form.civility) }}
         </div>
         <div class="col-md-4 col-sm-12">
@@ -41,4 +47,7 @@
         </div>
     </div>
     {{ form_end(form) }}
+
+    <!-- ✅ Zone où afficher le message de succès -->
+    <div data-contact-form-target="successMessage"></div>
 </div>

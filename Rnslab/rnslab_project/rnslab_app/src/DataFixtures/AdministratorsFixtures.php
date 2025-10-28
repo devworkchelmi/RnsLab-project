@@ -22,7 +22,7 @@ class AdministratorsFixtures extends Fixture
         $admin1 = new Administrators();
         $admin1->setEmail('admin1@example.com');
         $admin1->setRoles(['ROLE_ADMIN']);
-        $hashedPassword1 = $this->passwordHasher->hashPassword($admin1, 'strong_password1');
+        $hashedPassword1 = $this->passwordHasher->hashPassword($admin1, 'admin1');
         $admin1->setPassword($hashedPassword1);
         $manager->persist($admin1);
 
@@ -30,7 +30,7 @@ class AdministratorsFixtures extends Fixture
         $admin2 = new Administrators();
         $admin2->setEmail('admin2@example.com');
         $admin2->setRoles(['ROLE_ADMIN']);
-        $hashedPassword2 = $this->passwordHasher->hashPassword($admin2, 'strong_password2');
+        $hashedPassword2 = $this->passwordHasher->hashPassword($admin2, 'admmin2');
         $admin2->setPassword($hashedPassword2);
         $manager->persist($admin2);
 

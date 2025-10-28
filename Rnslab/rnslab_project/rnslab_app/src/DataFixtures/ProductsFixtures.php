@@ -21,7 +21,7 @@ class ProductsFixtures extends Fixture implements DependentFixtureInterface
                 "description" => "Découvrez notre Duo Post Chimiothérapie : REDACTIV 1®,
                  un sérum gel unique pour stimuler la repousse des cheveux sur les cuirs
                  lisses ou naissants...",
-                "pictureSrc" => "../images/carousel-produit-redactiv-1.jpg",
+                "pictureSrc" => "carousel-produit-redactiv-1.jpg",
                 "pictureAlt" => "The hightlighted product of redactiv",
                 "label" => "Redactiv",
             ],
@@ -32,7 +32,7 @@ class ProductsFixtures extends Fixture implements DependentFixtureInterface
                 "description" => "Optez pour notre cure d'un mois avec le Duo Capillaire :
                  REDACTIV 2®, un sérum naturel anti-chute, et le Shampooing Densifiant aux
                  extraits de tamarin et...",
-                "pictureSrc" => "../images/carousel-produit-redactiv-2.jpg",
+                "pictureSrc" => "carousel-produit-redactiv-2.jpg",
                 "pictureAlt" => "The second hightlighted product of redactiv",
                 "label" => "Redactiv",
             ],
@@ -43,7 +43,7 @@ class ProductsFixtures extends Fixture implements DependentFixtureInterface
                 "description" => "Découvrez la CURE RENAISSANCE POST CHIMIOTHÉRAPIE (4 mois)
                  : REDACTIV 1®, un sérum gel unique pour réactiver la croissance, REDACTIV 
                  2®, un sérum naturel anti-chute..",
-                "pictureSrc" => "../images/carousel-produit-redactiv-3.jpg",
+                "pictureSrc" => "carousel-produit-redactiv-3.jpg",
                 "pictureAlt" => "The third hightlighted product of redactiv",
                 "label" => "Redactiv",
             ],
@@ -54,7 +54,7 @@ class ProductsFixtures extends Fixture implements DependentFixtureInterface
                 "description" => "Que demande-t-on à un shampooing ? KILAVE® !
                  Celui-ci le fait parfaitement pour les cheveux et la barbe !
                  Ce shampooing technique..",
-                "pictureSrc" => "../images/carousel-produit-barbatif-1.jpg",
+                "pictureSrc" => "carousel-produit-barbatif-1.jpg",
                 "pictureAlt" => "The first hightlighted product of barbatif",
                 "label" => "Barbatif",
             ],
@@ -65,7 +65,7 @@ class ProductsFixtures extends Fixture implements DependentFixtureInterface
                 "description" => "REBOOST POILS®. S or not S... That is the question!
                 Ce sérum de croissance spécialement formulé pour la barbe contient le 
                 complexe d'actifs..",
-                "pictureSrc" => "../images/carousel-produit-barbatif-2.jpg",
+                "pictureSrc" => "carousel-produit-barbatif-2.jpg",
                 "pictureAlt" => "The second hightlighted product of barbatif",
                 "label" => "Barbatif",
             ],
@@ -74,7 +74,7 @@ class ProductsFixtures extends Fixture implements DependentFixtureInterface
                 "orderproduct" => 1,
                 "title" => "Vos cheveux sont nos cheveux, c'est pourquoi on vous propose les meilleures marques!",
                 "description" => "Une large gamme de soins du ruban adhésif, aux shampooings. ",
-                "pictureSrc" => "../images/carousel-produit-noscheveux.jpg",
+                "pictureSrc" => "carousel-produit-noscheveux.jpg",
                 "pictureAlt" => "The first hightlighted product of NosCheveux.com.",
                 "label" => "NosCheveux",
             ],

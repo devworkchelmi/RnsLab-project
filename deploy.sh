@@ -1,1 +1,1 @@
-echo :"test deployement";
+echo 'test deployement'

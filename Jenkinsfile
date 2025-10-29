@@ -7,10 +7,12 @@ pipeline {
     }
 
     stages {
+
         stage('Checkout') {
             steps {
                 echo "📥 Téléchargement du code depuis GitHub..."
                 git branch: 'master', url: 'https://github.com/devworkchelmi/RnsLab-project.git'
+                sh 'ls -la'
             }
         }
 
@@ -18,7 +20,9 @@ pipeline {
             steps {
                 echo "📦 Installation des dépendances PHP..."
                 dir("${APP_DIR}") {
-                    sh 'composer install --no-interaction --no-progress --ignore-platform-req=ext-zip'
+                    sh '''
+                        composer install --no-interaction --no-progress --ignore-platform-req=ext-zip
+                    '''
                 }
             }
         }
@@ -34,23 +38,21 @@ pipeline {
             }
         }
 
-        stage('Docker Build & Push') {
+        stage('Docker Build') {
             steps {
-                echo "🐳 Construction et Push Docker Hub..."
-                script {
-                    // Récupère le hash Git court (ex: 2ae3639)
-                    def TAG = sh(script: "git rev-parse --short HEAD", returnStdout: true).trim()
+                echo "🐳 Construction de l’image Docker..."
+                sh "docker build -t ${IMAGE_NAME}:latest ."
+            }
+        }
 
-                    withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
-                        sh '''
-                            echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-                        '''
-                        sh """
-                            docker build -t ${IMAGE_NAME}:latest -t ${IMAGE_NAME}:${TAG} .
-                            docker push ${IMAGE_NAME}:latest
-                            docker push ${IMAGE_NAME}:${TAG}
-                        """
-                    }
+        stage('Push Docker') {
+            steps {
+                echo "🚀 Envoi de l’image sur Docker Hub..."
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                    sh '''
+                        echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+                        docker push ${IMAGE_NAME}:latest
+                    '''
                 }
             }
         }

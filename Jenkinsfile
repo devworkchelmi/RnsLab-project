@@ -1,6 +1,14 @@
 pipeline {
     agent any
 
+    stage('Install') {
+    steps {
+        echo '📦 Installation des dépendances PHP...'
+        dir('Rnslab/rnslab_project/rnslab_app') {
+            sh 'composer install'
+        }
+    }
+}
     stages {
         stage('Hello') {
             steps {
@@ -9,10 +17,13 @@ pipeline {
         }
        stage('Test') {
     steps {
-        echo '🧪 Exécution des tests PHPUnit...'
-        sh './vendor/bin/phpunit --testdox'
+        echo '🧪 Exécution des tests...'
+        dir('Rnslab/rnslab_project/rnslab_app') {
+            sh './vendor/bin/phpunit --testdox'
+        }
     }
 }
+
 
 stage('Docker Build') {
     steps {

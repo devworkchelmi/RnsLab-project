@@ -1,0 +1,38 @@
+version: '3.9'
+
+services:
+  jenkins:
+    container_name: jenkins-master
+    image: jenkins-node
+    restart: always
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_data:/var/jenkins_home
+    environment:
+      - JAVA_OPTS=-Djenkins.install.runSetupWizard=false
+    user: "1000:1000"   # s'assure que Jenkins a bien les droits sur le volume
+
+volumes:
+  jenkins_data:
+    external: true
+    name: 8bf0019e52acd8da550e550a04d1084c85ec3a99f0e12fac1bf8496d3ddeba5c
+
+#Ce fichier fait 3 choses :
+
+#Relance Jenkins avec ton ancien volume complet
+
+#Redémarre automatiquement en cas de coupure
+
+#Évite toute perte de configuration future
+
+## Sauvegarde complète de Jenkins et lance chaque semaine
+#$backupFile = "jenkins_backup_{0}.tar.gz" -f (Get-Date -Format "yyyyMMdd_HHmm")
+#docker run --rm -v 8bf0019e52acd8da550e550a04d1084c85ec3a99f0e12fac1bf8496d3ddeba5c:/data -v ${PWD}:/backup alpine tar czf /backup/$backupFile -C /data .
+#Write-Host "✅ Sauvegarde terminée : $backupFile"
+
+#En cas de réinstallation complète de Docker, fais simplement :
+#docker volume create jenkins_restore
+#docker run --rm -v jenkins_restore:/data -v ${PWD}:/backup alpine tar xzf /backup/jenkins_backup_XXXX.tar.gz -C /data
+#docker compose -f jenkins-compose.yml up -d

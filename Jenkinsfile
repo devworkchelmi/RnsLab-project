@@ -2,9 +2,12 @@ pipeline {
     agent any
 
     environment {
-        APP_DIR = "Rnslab/rnslab_project/rnslab_app"
-        IMAGE_NAME = "devworkchelmi/rnslab-project"
-    }
+    APP_DIR = "Rnslab/rnslab_project/rnslab_app"
+    IMAGE_NAME = "devworkchelmi/rnslab-project"
+    DATABASE_URL = "sqlite:///%kernel.project_dir%/var/data.db"
+}
+
+
 
     stages {
 

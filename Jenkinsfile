@@ -18,6 +18,7 @@ pipeline {
                 sh 'ls -la'
             }
         }
+    }
 
         stage('Install') {
             steps {

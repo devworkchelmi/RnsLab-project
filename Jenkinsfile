@@ -4,6 +4,8 @@ pipeline {
     environment {
         APP_DIR = "Rnslab/rnslab_project/rnslab_app"
         IMAGE_NAME = "devworkchelmi/rnslab"
+        // ✅ Ajout global pour Symfony : évite l’erreur "DATABASE_URL not found"
+        DATABASE_URL = "sqlite:///%kernel.project_dir%/var/data.db"
     }
 
     stages {
@@ -21,6 +23,7 @@ pipeline {
                 echo "📦 Installation des dépendances PHP..."
                 dir("${APP_DIR}") {
                     sh '''
+                        export DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"
                         composer install --no-interaction --no-progress --ignore-platform-req=ext-zip
                     '''
                 }
@@ -31,9 +34,10 @@ pipeline {
             steps {
                 echo "🧪 Exécution des tests PHPUnit..."
                 dir("${APP_DIR}") {
-                    withEnv(["DATABASE_URL=sqlite:///%kernel.project_dir%/var/data.db"]) {
-                        sh './vendor/bin/phpunit --testdox || echo "⚠️ Tests échoués ou absents"'
-                    }
+                    sh '''
+                        export DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"
+                        ./vendor/bin/phpunit --testdox || echo "⚠️ Tests échoués ou absents"
+                    '''
                 }
             }
         }

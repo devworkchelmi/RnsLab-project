@@ -10,14 +10,12 @@ pipeline {
     stages {
 
         stage('Checkout') {
-            steps {
-                echo '📥 Téléchargement du code depuis GitHub...'
-                // Force Jenkins à cloner le repo
-                checkout scm
-                // Vérifie que le code est bien là
-                sh 'ls -la'
-            }
-        }
+    steps {
+        echo '📥 Téléchargement du code depuis GitHub...'
+        git branch: 'master', url: 'https://github.com/devworkchelmi/RnsLab-project.git'
+        sh 'ls -la'
+    }
+}
 
         stage('Hello') {
             steps {

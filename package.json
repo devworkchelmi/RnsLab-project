@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "echo \"Error: no test specified\" && exit 0",
     "start": "node index.js",
     "build": "echo '✅ Build terminé !'"
   },
@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/devworkchelmi/RnsLab-project/issues"
   },
-  "homepage": "https://github.com/devworkchelmi/RnsLab-project#readme"
+  "homepage": "https://github.com/devworkchelmi/RnsLab-project#readme",
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
 }

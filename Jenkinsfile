@@ -2,12 +2,22 @@ pipeline {
     agent any
 
     environment {
-        PROJECT_PATH = 'Rnslab/rnslab_project/rnslab_app' // 👈 Chemin vers le dossier PHP
+        PROJECT_PATH = 'Rnslab/rnslab_project/rnslab_app' // 🧭 adapte ce chemin si ton composer.json est ailleurs
         DOCKER_IMAGE = "ghcr.io/devworkchelmi/rnslab"
-        GITHUB_CREDENTIALS = 'github-token'
+        GITHUB_CREDENTIALS = 'github-token' // ton ID Jenkins pour ton token GitHub
     }
 
     stages {
+
+        stage('Checkout') {
+            steps {
+                echo '📥 Téléchargement du code depuis GitHub...'
+                // Force Jenkins à cloner le repo
+                checkout scm
+                // Vérifie que le code est bien là
+                sh 'ls -la'
+            }
+        }
 
         stage('Hello') {
             steps {

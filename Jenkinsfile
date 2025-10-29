@@ -1,11 +1,12 @@
 pipeline {
     agent any
 
-    environment {
+     environment {
         APP_DIR = "Rnslab/rnslab_project/rnslab_app"
         IMAGE_NAME = "devworkchelmi/rnslab"
-        // ✅ Ajout global pour Symfony : évite l’erreur "DATABASE_URL not found"
         DATABASE_URL = "sqlite:///%kernel.project_dir%/var/data.db"
+        // Ajout des credentials Docker Hub
+        DOCKER_CREDENTIALS = credentials('dockerhub-creds')
     }
 
     stages {
@@ -49,15 +50,14 @@ pipeline {
             }
         }
 
-        stage('Push Docker') {
-            steps {
-                echo "🚀 Envoi de l’image sur Docker Hub..."
-                withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
-                    sh '''
-                        echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-                        docker push ${IMAGE_NAME}:latest
-                    '''
-                }
+         stage('Push Docker') {
+        steps {
+            echo "🚀 Envoi de l'image sur Docker Hub..."
+            withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                sh '''
+                    echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+                    docker push ${IMAGE_NAME}:latest
+                '''
             }
         }
     }

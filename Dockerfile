@@ -1,21 +1,21 @@
-# Base Jenkins image
 FROM jenkins/jenkins:lts
 
 USER root
 
-RUN apt-get update && \
-    apt-get install -y curl git && \
-    curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
-    apt-get install -y nodejs && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* && \
-    # Fix permissions
-    chown -R jenkins:jenkins /var/jenkins_home
-
-# Définir explicitement le volume
-VOLUME /var/jenkins_home
+# Installer PHP, Composer et utilitaires
+RUN apt-get update && apt-get install -y \
+    php \
+    php-cli \
+    php-mbstring \
+    php-xml \
+    git \
+    unzip \
+    curl \
+    && curl -sS https://getcomposer.org/installer | php \
+    && mv composer.phar /usr/local/bin/composer \
+    && chmod +x /usr/local/bin/composer \
+    && apt-get clean
 
 USER jenkins
 
-EXPOSE 8080
-EXPOSE 50000
+# Jenkins se lancera comme d'habitude
